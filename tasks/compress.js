@@ -7,6 +7,9 @@ module.exports = function  (grunt) {
   var fs = require('fs');
   var path = require('path');
   var filesize = require('filesize');
+  var async = grunt.util.async;
+  var options;
+
   require('colors');
 
   function minifiyImage(file, callback) {
@@ -23,6 +26,7 @@ module.exports = function  (grunt) {
 
       var newSize = fs.statSync(file).size;
       var diff = originalSize - newSize;
+
       if(result.stderr.indexOf('already optimized') !== -1 || diff < 10) {
         grunt.log.writeln('  \u2713'.green, 'already optimized');
       } else {
@@ -38,7 +42,7 @@ module.exports = function  (grunt) {
 
     var done = this.async();
 
-    var options = this.options({
+    options = this.options({
       'compression': 3
     });
 
@@ -49,7 +53,7 @@ module.exports = function  (grunt) {
       return done();
     }
 
-    async.forEach(options.files, minifiyImage, function () {
+    async.forEach(options.files, minifiyImage, function (err) {
 
       if(err) {
         throw err;
