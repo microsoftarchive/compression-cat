@@ -8,6 +8,7 @@ module.exports = function  (grunt) {
   var path = require('path');
   var filesize = require('filesize');
   var async = grunt.util.async;
+  var _ = grunt.util._;
   var options;
 
   require('colors');
@@ -48,12 +49,13 @@ module.exports = function  (grunt) {
 
     if (!options.files.length) {
 
-      grunt.file.write(destStylus, '');
       grunt.log.warn('no files were found');
       return done();
     }
 
-    async.forEach(options.files, minifiyImage, function (err) {
+    // we limit this for instance where something like a giant library of emoji
+    // destory the process. Maybe this is an option for the future
+    async.forEachLimit(options.files, 30, minifiyImage, function (err) {
 
       if(err) {
         throw err;
