@@ -1,0 +1,28 @@
+{
+  "name": "compression-cat",
+  "version": "0.0.1",
+  "description": "Compress all your pngs",
+  "main": "tasks/compress.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "png compression",
+    "cats"
+  ],
+  "author": "Adam Schroder <adamknows@gmail.com>",
+  "contributors": [
+    "Aditya <aditya@netroy.in>"
+  ],
+  "homepage": "https://github.com/wunderlist/compression-cat",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:wunderlist/compression-cat.git"
+  },
+  "dependencies": {
+    "colors": "0.6.0-1",
+    "optipng": "~0.0.4",
+    "filesize": "2.0.0"
+  },
+  "license": "BSD-2-Clause"
+}

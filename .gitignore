@@ -1,0 +1,21 @@
+# System generated files
+node_modules
+npm-debug.log
+.DS_Store
+*.sublime-project
+
+# Files from build tools
+build
+*.gz
+*.css
+*.html
+casper
+public/images/sprites/*.png
+src/styles/sprites/*.styl
+
+# Files that should never be checked in
+public/config.js
+public/icons/*.png
+public/manifest.json
+public/service.js
+public/bootstraps/*.js
