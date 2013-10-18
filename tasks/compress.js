@@ -39,10 +39,7 @@ module.exports = function  (grunt) {
     var done = this.async();
 
     var options = this.options({
-      'compression': 3,
-      'format': 'png',
-      'destDir': '',
-      'srcDir': ''
+      'compression': 3
     });
 
     if (!options.files.length) {
@@ -62,5 +59,5 @@ module.exports = function  (grunt) {
     });
   }
 
-  grunt.registerTask('compress', compress);
+  grunt.registerTask('compression-cat', compress);
 };
